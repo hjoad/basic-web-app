@@ -47,7 +47,7 @@ export default function QueryProcessor(query: string): string {
     }
   }
 
-  if (query.includes("multiplies")) {
+  if (query.includes("multiplied")) {
     // Extract numbers x and y
     const numbersRegex = /\d+/g;
     const numbers = query.match(numbersRegex);
