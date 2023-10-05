@@ -1,4 +1,4 @@
-export default function QueryProcessor(query: string): string {
+export default function QueryProcessor(query: string): string | number {
   if (query.toLowerCase().includes("shakespeare")) {
     return (
       "William Shakespeare (26 April 1564 - 23 April 1616) was an " +
@@ -7,14 +7,10 @@ export default function QueryProcessor(query: string): string {
     );
   }
   if (query.toLowerCase().includes("andrew id")) {
-    return (
-      "hjoad"
-    );
+    return "hjoad";
   }
   if (query.includes("What is your name?")) {
-    return (
-      "hjoad"
-    );
+    return "hjoad";
   }
   if (query.includes("Which of the following numbers is the largest:")) {
     // Extract numbers from the query
@@ -27,7 +23,9 @@ export default function QueryProcessor(query: string): string {
 
       // Find the largest number
       const largestNumber = Math.max(...intNumbers);
-      return largestNumber.toString();
+
+      // Return the largest number as a number
+      return largestNumber;
     }
   }
 
@@ -44,7 +42,8 @@ export default function QueryProcessor(query: string): string {
       // Perform the addition
       const result = x + y;
 
-      return result.toString();
+      // Return the result as a number
+      return result;
     }
   }
 
