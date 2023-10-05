@@ -65,5 +65,28 @@ export default function QueryProcessor(query: string): string {
     }
   }
 
+  if (query.includes("Which of the following numbers is both a square and a cube:")) {
+    // Extract numbers from the query
+    const numbersRegex = /\d+/g;
+    const numbers = query.match(numbersRegex);
+
+    if (numbers && numbers.length >= 1) {
+      // Convert extracted numbers to an array of integers
+      const intNumbers = numbers.map((num) => parseInt(num, 10));
+
+      // Find the numbers that are both squares and cubes
+      const squareAndCubeNumbers = intNumbers.filter((num) => {
+        const sqrt = Math.sqrt(num);
+        const cubeRoot = Math.cbrt(num);
+        return Number.isInteger(sqrt) && Number.isInteger(cubeRoot);
+      });
+
+      // Return the first number that meets the condition as a number
+      if (squareAndCubeNumbers.length > 0) {
+        return squareAndCubeNumbers[0].toString();
+      }
+    }
+  }
+
   return "";
 }
