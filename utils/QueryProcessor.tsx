@@ -31,5 +31,22 @@ export default function QueryProcessor(query: string): string {
     }
   }
 
+  if (query.includes("plus")) {
+    // Extract numbers x and y
+    const numbersRegex = /\d+/g;
+    const numbers = query.match(numbersRegex);
+
+    if (numbers && numbers.length === 2) {
+      // Convert extracted numbers to integers
+      const x = parseInt(numbers[0], 10);
+      const y = parseInt(numbers[1], 10);
+
+      // Perform the addition
+      const result = x + y;
+
+      return result.toString();
+    }
+  }
+
   return "";
 }
