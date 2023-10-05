@@ -25,7 +25,7 @@ export default function QueryProcessor(query: string): string | number {
       const largestNumber = Math.max(...intNumbers);
 
       // Return the largest number as a number
-      return largestNumber;
+      return largestNumber.toString();
     }
   }
 
@@ -43,7 +43,7 @@ export default function QueryProcessor(query: string): string | number {
       const result = x + y;
 
       // Return the result as a number
-      return result;
+      return result.toString();
     }
   }
 
